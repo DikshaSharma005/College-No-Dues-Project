@@ -20,6 +20,7 @@ const PausedRequests = () => {
 
   const [selectedRequestIds, setSelectedRequestIds] = useState(new Set());
 
+ 
   const handleCheckboxChange = (e, requestId) => {
     if (e.target.checked) {
       setSelectedRequestIds((prev) => new Set([...prev, requestId]));
@@ -34,31 +35,42 @@ const PausedRequests = () => {
   
   const handleRevert = async () => {
     try {
-      await axios.post("http://localhost:3001/api/pending-requests", {
+      const response = await axios.post("http://localhost:3001/api/revert-requests", {
         requestIds: Array.from(selectedRequestIds),
       });
-      // Fetch the updated list of paused requests
-      const response = await axios.get("http://localhost:3001/api/paused-requests");
-      setRequests(response.data);
+
+      if (response.status === 200) {
+        // Fetch the updated list of paused requests
+        const response2 = await axios.get("http://localhost:3001/api/paused-requests");
+        setRequests(response2.data);
+        setSelectedRequestIds(new Set());
+      } else {
+        throw new Error("Failed to revert requests");
+      }
     } catch (error) {
       console.error("Error reverting requests:", error);
     }
   };
 
+
   const handleApprove = async () => {
     try {
-      await axios.post("http://localhost:3001/api/approved-requests", {
+      const response = await axios.post("http://localhost:3001/api/approved-requests-from-paused", {
         requestIds: Array.from(selectedRequestIds),
       });
-      // Fetch the updated list of paused requests
-      const response = await axios.get("http://localhost:3001/api/paused-requests");
-      setRequests(response.data);
+
+      if (response.status === 200) {
+        setRequests((prev) =>
+          prev.filter((request) => !selectedRequestIds.has(request._id))
+        );
+        setSelectedRequestIds(new Set());
+      } else {
+        throw new Error("Failed to approve requests");
+      }
     } catch (error) {
       console.error("Error approving requests:", error);
     }
   };
-  
-
 
   return (
     <div className="paused-requests">
@@ -69,7 +81,6 @@ const PausedRequests = () => {
   <tr>
     <th>Select</th>
     <th>Student ID</th>
-    <th>Request Details</th>
     <th>Father Name</th>
     <th>URN</th>
     <th>CRN</th>
@@ -86,7 +97,6 @@ const PausedRequests = () => {
         />
       </td>
       <td>{request.studentId}</td>
-      <td>{request.requestDetails}</td>
       <td>{request.fatherName}</td>
       <td>{request.URN}</td>
       <td>{request.CRN}</td>

@@ -52,7 +52,7 @@ const PendingRequests = () => {
 
   const handlePause = async () => {
     try {
-      const response = await axios.post("http://localhost:3001/api/paused-requests", {
+      const response = await axios.post("http://localhost:3001/api/pause-requests", {
         requestIds: Array.from(selectedRequestIds),
       });
   
@@ -80,7 +80,6 @@ const PendingRequests = () => {
           <tr>
             <th>Select</th>
             <th>Student ID</th>
-            <th>Request Details</th>
             <th>Father Name</th>
             <th>URN</th>
             <th>CRN</th>
@@ -98,7 +97,6 @@ const PendingRequests = () => {
                 />
               </td>
               <td>{request.studentId}</td>
-              <td>{request.requestDetails}</td>
               <td>{request.fatherName}</td>
               <td>{request.URN}</td>
               <td>{request.CRN}</td>

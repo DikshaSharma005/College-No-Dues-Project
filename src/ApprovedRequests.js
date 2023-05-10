@@ -25,7 +25,6 @@ const ApprovedRequests = () => {
         <thead>
           <tr>
             <th>Student ID</th>
-            <th>Request Details</th>
             <th>Father Name</th>
             <th>URN</th>
             <th>CRN</th>
@@ -36,7 +35,6 @@ const ApprovedRequests = () => {
           {requests.map((request) => (
             <tr key={request._id}>
               <td>{request.studentId}</td>
-              <td>{request.requestDetails}</td>
               <td>{request.fatherName}</td>
               <td>{request.URN}</td>
               <td>{request.CRN}</td>
