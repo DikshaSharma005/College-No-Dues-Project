@@ -23,13 +23,13 @@ function LoginForm() {
       .post('http://localhost:3001/login', { username, password })
       .then((response) => {
         if (response.status === 200) {
-          const { role, id, father_name, URN, CRN } = response.data;
+          const { role, id, father_name, URN, CRN, department} = response.data;
 
           // Store the user ID, role, and additional fields in the local storage
           localStorage.setItem('userId', id);
           localStorage.setItem('userRole', role);
           localStorage.setItem('father_name', father_name);
-          //localStorage.setItem('department', department);
+          localStorage.setItem('department', department);
           localStorage.setItem('URN', URN);
           localStorage.setItem('CRN', CRN);
 

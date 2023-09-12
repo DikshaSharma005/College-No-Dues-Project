@@ -9,6 +9,7 @@ const Navbar = () => {
           <ul className={styles['nav-items']}>
             <li>
               <a href="/"> HOME</a>
+              
             </li>
             <li>
               <a href="https://www.gndec.ac.in/">COLLEGE WEBSITE</a>

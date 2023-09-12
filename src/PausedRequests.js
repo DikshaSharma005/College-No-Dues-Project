@@ -51,8 +51,7 @@ const PausedRequests = () => {
       console.error("Error reverting requests:", error);
     }
   };
-
-
+  
   const handleApprove = async () => {
     try {
       const response = await axios.post("http://localhost:3001/api/approved-requests-from-paused", {
@@ -84,6 +83,7 @@ const PausedRequests = () => {
     <th>Father Name</th>
     <th>URN</th>
     <th>CRN</th>
+    <th>department</th>
     <th>Date</th>
   </tr>
 </thead>
@@ -100,6 +100,7 @@ const PausedRequests = () => {
       <td>{request.fatherName}</td>
       <td>{request.URN}</td>
       <td>{request.CRN}</td>
+      <td>{request.department}</td>
       <td>{new Date(request.createdAt).toLocaleDateString()}</td>
     </tr>
          ))}

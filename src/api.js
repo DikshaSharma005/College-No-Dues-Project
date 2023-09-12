@@ -2,10 +2,10 @@ import axios from 'axios';
 
 export const generateRequest = async (studentId, requestDetails, fatherName, URN, CRN) => {
   try {
-    const response = await axios.post('http://localhost:3001/api/generate-request', { studentId, requestDetails, fatherName, URN, CRN });
+    const response = await axios.post('http://localhost:3001/api/generate-request', { studentId, requestDetails, fatherName, URN, CRN, department });
 
     if (response.data.success) {
-      console.log('Request generated:', { studentId, requestDetails, fatherName, URN, CRN });
+      console.log('Request generated:', { studentId, requestDetails, fatherName, URN, CRN, department});
       return { success: true };
     } else {
       console.error('Failed to generate request');

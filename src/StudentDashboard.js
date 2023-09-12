@@ -8,17 +8,17 @@ const StudentDashboard = () => {
 
     const studentId = localStorage.getItem('userId');
     const fatherName = localStorage.getItem('father_name');
-    //const department = localStorage.getItem('Department');
     const URN = localStorage.getItem('URN');
     const CRN = localStorage.getItem('CRN');
+    const department = localStorage.getItem('department');
       const requestDetails = 'Example request details';
       console.log('Sending request data:', {
         studentId,
         requestDetails,
         fatherName,
-        //department,
         URN,
         CRN,
+        department,
       });
       
       
@@ -28,10 +28,9 @@ const StudentDashboard = () => {
         studentId,
         requestDetails,
         fatherName,
-       // department,
         URN,
         CRN,
-         // Include department in the request data
+        department, // Include department in the request data
       });
       
       console.log(response.data);
