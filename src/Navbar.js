@@ -18,7 +18,7 @@ const Navbar = () => {
               <a href="contact.html"> CONTACT US</a>
             </li>
             <li>
-              <a href="about.html"> ABOUT US</a>
+              <a href="https://gndec.ac.in/?q=node/2"> ABOUT US</a>
             </li>
             <li>
               <a href="/"> LOGOUT</a>

@@ -1,12 +1,12 @@
 import './login.css';
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Import the useNavigate hook
 
 function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Use the useNavigate hook
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -22,10 +22,13 @@ function LoginForm() {
     axios
       .post('http://localhost:3001/login', { username, password })
       .then((response) => {
-        if (response.status === 200) {
-          const { role, id, father_name, URN, CRN, department} = response.data;
+        console.log('Response Data:', response.data);
 
-          // Store the user ID, role, and additional fields in the local storage
+        if (response.status === 200) {
+          const { role, id, father_name, URN, CRN, department } = response.data;
+          console.log('Role:', role);
+
+          // Store user data in local storage
           localStorage.setItem('userId', id);
           localStorage.setItem('userRole', role);
           localStorage.setItem('father_name', father_name);
@@ -33,16 +36,15 @@ function LoginForm() {
           localStorage.setItem('URN', URN);
           localStorage.setItem('CRN', CRN);
 
+          // Use the navigate function to redirect to different routes based on the role
           if (role === 'advisor') {
-            window.location.href = '/advisor-dashboard';
+            navigate('/advisor-dashboard');
           } else if (role === 'student') {
             navigate('/student-dashboard');
           } else if (role === 'staff') {
             navigate('/staff-dashboard');
-          }else if (role === 'nonteachingstaff') {
-              navigate('/nonteaching-dashboard');
-          } else {
-            navigate('/default');
+          } else if (role === 'nonteachingstaff') {
+            navigate('/nonteaching-dashboard');
           }
         }
       })
