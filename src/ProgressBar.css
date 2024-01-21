@@ -1,0 +1,26 @@
+.progress-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  width: 60%;
+  margin-left: 100px;
+  border-radius: 10px;
+  /* align-items: flex-start; */ /* Use this line if you want to align items at the start vertically */
+}
+
+.progress-block {
+  flex-grow: 1;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.progress-block.approved {
+  background-color: #4caf50; /* Green background for approved status */
+  color: #fff; /* White text for better visibility */
+}
+
+.progress-block.paused {
+  background-color: #f44336; /* Red background for paused status */
+  color: #fff; /* White text for better visibility */
+}

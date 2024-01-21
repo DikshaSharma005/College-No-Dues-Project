@@ -1,0 +1,97 @@
+/* CertificatePage.css */
+
+@page {
+  size: A4;
+  margin: 0; /* Reset page margin */
+}
+
+body {
+  margin: 0; /* Reset body margin */
+}
+.certificate-page {
+  max-width: 210mm;
+  margin-top: 20px auto;
+  padding: 20px;
+  position: relative;
+}
+
+.gneimage {
+  position: absolute;
+  opacity: 0.2;
+ left: 180px;
+  top: 300px;
+  text-align: center;
+  width: 400px; /* Set a fixed width for the image container */
+  height: auto; /* Maintain the aspect ratio */
+}
+/* Style for the image */
+.gneimage img {
+  width: 100%; /* Adjust the width based on your design */
+  max-width: 400px; /* Set a maximum width for the image */
+  
+}
+  
+
+header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between; /* Align the logo to the right */
+}
+
+.logo {
+  width: 80px; /* Adjust the size as needed */
+}
+
+.content {
+  flex-grow: 1; /* Allow the content to take remaining space */
+  padding-left: 10px; /* Add padding for spacing */
+}
+
+h2 {
+  margin: 0;
+  font-size: 26px;
+  color: #1c0879;
+  font-family: inherit;
+}
+
+h5 {
+  color: #e91d26;
+  font-size: 16px;
+}
+
+h6 {
+  color: #1c0879;
+  font-size: 12px;
+}
+
+.certificate-content {
+  margin-top: 20px;
+  text-align: justify;
+  font-size: 12px;
+}
+
+.separator {
+  border: 2px solid #f51c27;
+  margin: 1px 0;
+}
+
+h3 {
+  font-size: 16px;
+  margin: 0;
+  text-align:right;
+}
+.comment{
+  margin-top: 730px;
+  text-align: left;
+  font-size: 12px;
+  
+}
+
+.anotherseparator {
+  border: 2px solid #e91d26;
+  margin-top: 10px; /* Adjust the margin as needed */
+}
+.another-content h6 {
+  font-size: 12px; /* Adjust the font size */
+}
+

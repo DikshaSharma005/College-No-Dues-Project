@@ -1,11 +1,16 @@
-
 .login-container {
   display: flex;
-  justify-content: center;
+   /* This will place the image and form side by side */
   align-items: center;
   min-height: 100vh;
+  background-image: none; /* Remove background image from the container */ 
+  ;
 }
-
+.login-form {
+  /* Adjust the width based on your design */
+flex:1;
+  padding: 0 20px; /* Add padding to the form */
+}
 .login-wrapper {
   display: flex;
   justify-content: center;
@@ -13,31 +18,25 @@
   height: 100vh;
 }
 
-/* .login-form {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.16);
-} */
-
-
-
 body {
   background-color: #fff;
   font-family: "Inter", sans-serif;
-  background-image: url('images/bg.png');
+
   background-repeat: no-repeat;
-  background-position: right bottom;
+  background-position: left center;
+  
+  margin-left: 100px;
   background-attachment: fixed;
+  
 }
 form {
-  background-color: #fff;
+  background-color: #e9e8eb;
   width: 361px;
   height: 480px;
-  margin-top: 130px;
-  margin-left: 65px;
+  margin-right: 100px;
+  margin-left: 1050px;
   padding: 50px 50px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 8px 15px rgba(159, 158, 158, 0.938);
   border-radius: 15px;
 }
 
@@ -47,7 +46,7 @@ form h1{
   font-size: 40px;
   line-height: 48px;
   text-align: center;
-  color: #303030;
+  color: #13064b;
   margin-bottom: 0px;
   margin-top: 0px;
 
@@ -58,7 +57,7 @@ form h2{
   font-size: 24px;
   line-height: 29px;
   text-align: center;
-  color: #303030;
+  color: #13064b;
   margin-bottom: 50px;
 }
 
@@ -71,8 +70,8 @@ input[type="text"], input[type="password"],input[type="submit"] {
   box-shadow: 0px 0px 5px #ccc;
 }
 input[type="submit"] {
-  background-color: #303030;
-  color: #D9D9D9;
+  background-color: #13064b;
+  color: #fff;
   border: none;
   border-radius: 0px; 
   cursor: pointer;
@@ -81,9 +80,10 @@ input[type="submit"] {
   line-height: 19px;
   text-align: center;
   padding: 10px;
+  box-shadow: 0px 8px 15px rgba(151, 188, 218, 0.938);
 }
 input[type="submit"]:hover {
-  background-color: #1a68d6;
+  background-color: #2e7fef;
 }
 
 form label{
@@ -92,7 +92,7 @@ form label{
   font-size: 16px;
   line-height: 19px;
   text-align: left;
-  color: #303030;
+  color: #13064b;
   display: block;
 }
 
@@ -112,6 +112,19 @@ form label{
 }
 .forgot-password {
   font-size: 14px;
-  color: #303030;
+  color: #13064b;
   text-decoration: none;
 }
+  /*Add a new class for the image container */
+  .image-container {
+    left: 20px;
+    top: 200px; 
+    text-align: center;
+    margin-top: 20px; /* Adjust the top margin as needed */
+  }
+  /* Style for the image */
+  .image-container img {
+    width: 100%; /* Adjust the width based on your design */
+    max-width: 300px; /* Set a maximum width for the image */
+    
+  }

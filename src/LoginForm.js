@@ -25,12 +25,13 @@ function LoginForm() {
         console.log('Response Data:', response.data);
 
         if (response.status === 200) {
-          const { role, id, father_name, URN, CRN, department } = response.data;
+          const { role, id, student_name, father_name, URN, CRN, department } = response.data;
           console.log('Role:', role);
 
           // Store user data in local storage
           localStorage.setItem('userId', id);
           localStorage.setItem('userRole', role);
+          localStorage.setItem('student_name', student_name);
           localStorage.setItem('father_name', father_name);
           localStorage.setItem('department', department);
           localStorage.setItem('URN', URN);
@@ -41,10 +42,18 @@ function LoginForm() {
             navigate('/advisor-dashboard');
           } else if (role === 'student') {
             navigate('/student-dashboard');
+          }  else if (role === 'HOD') {
+            navigate('/hod-dashboard');
           } else if (role === 'staff') {
-            navigate('/staff-dashboard');
-          } else if (role === 'nonteachingstaff') {
-            navigate('/nonteaching-dashboard');
+              navigate('/library-dashboard');
+          }  else if (role === 'hostel') {
+            navigate('/hostel-dashboard');
+          }else if (role === 'mess') {
+            navigate('/mess-dashboard');
+          }else if (role === 'tnp') {
+            navigate('/tnp-dashboard');
+          }else if (role === 'accountsbranch') {
+            navigate('/accb-dashboard');
           }
         }
       })
@@ -58,6 +67,12 @@ function LoginForm() {
   };
 
   return (
+    <div className="login-container">
+    {/* Add the image container here */}
+    <div className="image-container">
+                <img src="https://www.logolynx.com/images/logolynx/9f/9f2c4042d28462d69f738e6018bb4ff9.jpeg" alt="Description" />
+              </div>
+    <div className="login-form">
     <form onSubmit={handleSubmit}>
       <h1>Welcome to,</h1>
       <h2>College no dues portal</h2>
@@ -93,6 +108,8 @@ function LoginForm() {
 
       <input type="submit" value="Login" />
     </form>
+    </div>
+    </div>
   );
 }
 
